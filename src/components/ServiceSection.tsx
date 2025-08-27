@@ -26,6 +26,7 @@ const services = [
     features: [
       "Full-Stack Development",
       "React & Next.js",
+      "Wordpress",
       "Python Backend",
       "Database Management",
       "API Integration"

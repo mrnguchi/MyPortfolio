@@ -65,7 +65,7 @@ const AboutSection = () => {
             <p className={styles.duration}>2020 – 2022</p>
           </div>
 
-          {/* Conditionally rendered Ordinary Level card - appears ABOVE the button */}
+          
           {showMoreEducation && (
             <div className={styles.educationItem}>
               <div className={styles.educationHeader}>
@@ -77,7 +77,7 @@ const AboutSection = () => {
             </div>
           )}
 
-          {/* Toggle Button - stays in the same position */}
+          {/* Toggle Button */}
           <button className={styles.toggleButton} onClick={toggleEducation}>
             {showMoreEducation ? (
               <>

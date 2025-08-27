@@ -48,7 +48,7 @@ const HeroSection = () => {
     </div>
     {/* Top badge */}
     <div className={styles.topBadge}>
-      <span>👋 Hello, I&apos;m Munoh Nguchi Nwambou</span>
+      <span>👋 Hello, I&lsquo;m Munoh Nguchi Nwambou</span>
       <span className={styles.badgeStar}>★</span>
     </div>
     {/* Menu button with dropdown */}
@@ -103,7 +103,7 @@ const HeroSection = () => {
           <div className={styles.accentBar}></div>
           <p className={styles.paragraph}>
             Building practical, impactful solutions through code.<br />
-            Passionate about creating technology that makes a difference in people&apos;s lives.
+            Passionate about creating technology that makes a difference in people&lsquo;s lives.
           </p>
         </div>
         <div className={styles.ctas}>

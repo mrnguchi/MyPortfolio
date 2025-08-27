@@ -19,8 +19,8 @@ const AboutSection = () => {
           About <span className={styles.highlight}>Me</span>
         </h2>
         <p className={styles.description}>
-          I am a 22-year-old software developer with an HND in Software Engineering, currently
-          completing my Bachelor's at the University of Buea. I'm passionate about building
+          I am a 22 years old software developer with an HND in Software Engineering, currently
+          completing my Bachelor&lsquo;s at the University of Buea. I&lsquo;m passionate about building
           practical solutions through technology and continuously learning from the fast-changing
           trends in the tech world.
         </p>
@@ -40,7 +40,7 @@ const AboutSection = () => {
         <div className={styles.educationList}>
           <div className={styles.educationItem}>
             <div className={styles.educationHeader}>
-              <h4 className={styles.degree}>Bachelor's in Software Engineering</h4>
+              <h4 className={styles.degree}>Bachelor&lsquo;s in Software Engineering</h4>
               <span className={styles.status + ' ' + styles.ongoing}>Ongoing</span>
             </div>
             <p className={styles.institution}>College of Technology, University of Buea</p>

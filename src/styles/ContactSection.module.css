@@ -1,0 +1,500 @@
+/* Main Contact Section */
+.contact {
+  width: 100%;
+  background: #f6f8fa;
+}
+
+/* Hero Section */
+.heroSection {
+  background: linear-gradient(135deg, #0d1117 0%, #21262d 50%, #30363d 100%);
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23FFD56A" opacity="0.3"/><circle cx="80" cy="30" r="1.5" fill="%23FFD56A" opacity="0.4"/><circle cx="60" cy="70" r="1" fill="%23FFD56A" opacity="0.5"/><circle cx="30" cy="80" r="2.5" fill="%23FFD56A" opacity="0.2"/></svg>') repeat;
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(180deg); }
+}
+
+.heroContent {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.heroText {
+  max-width: 600px;
+}
+
+.heroIcon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.heroDescription {
+  font-size: 1.2rem;
+  color: #8b949e;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.whatsappButton {
+  background: linear-gradient(135deg, #0bb864 0%, #63e36b 100%);
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(184, 134, 11, 0.3);
+}
+
+.whatsappButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(184, 134, 11, 0.4);
+  background: linear-gradient(135deg, #097e34 0%, #B8860B 100%);
+}
+
+.whatsappIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Contact Section */
+.contactSection {
+  background: #ffffff;
+  padding: 6rem 0;
+  width: 100%;
+}
+
+.contactContent {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* Header Section */
+.contactHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.contactTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #B8860B;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.contactDescription {
+  font-size: 1.1rem;
+  color: #656d76;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Main Content Section */
+.contactMain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+/* Left Side - Contact Info */
+.contactLeft {
+  padding-right: 2rem;
+}
+
+.contactCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contactCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: inherit;
+}
+
+.contactCard:hover {
+  background: #B8860B;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(184, 134, 11, 0.25);
+  text-decoration: none;
+}
+
+.contactCard:hover .contactIcon {
+  background: #ffffff;
+  color: #0d1117;
+}
+
+.contactCard:hover .contactCardLabel {
+  color: #ffffff;
+}
+
+.contactCard:hover .contactCardValue {
+  color: #ffffff;
+}
+
+.contactIcon {
+  width: 48px;
+  height: 48px;
+  background: #0d1117;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.contactIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contactCardContent {
+  flex: 1;
+}
+
+.contactCardLabel {
+  display: block;
+  font-size: 0.9rem;
+  color: #656d76;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.contactCardValue {
+  font-size: 1rem;
+  color: #24292f;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Right Side - Contact Form */
+.contactRight {
+  padding-left: 2rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.formContainer {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: fit-content;
+}
+
+.formTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #24292f;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+.contactForm {
+  margin-bottom: 1.5rem;
+}
+
+.formGroup {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.formLabel {
+  position: absolute;
+  left: 1.25rem;
+  top: 1.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #656d76;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  background: transparent;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 1.25rem;
+  border: none;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+  color: #24292f;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(13, 17, 23, 0.1);
+  transform: translateY(-1px);
+}
+
+.formInput:focus + .formLabel,
+.formInput:not(:placeholder-shown) + .formLabel,
+.formTextarea:focus + .formLabel,
+.formTextarea:not(:placeholder-shown) + .formLabel {
+  top: -0.5rem;
+  left: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #B8860B;
+  background: #ffffff;
+  padding: 0 0.5rem;
+}
+
+.formTextarea {
+  min-height: 120px;
+  max-height: 300px;
+  resize: vertical;
+  padding-top: 1.5rem;
+}
+
+.formTextarea + .formLabel {
+  top: 1.5rem;
+}
+
+.formTextarea:focus + .formLabel,
+.formTextarea:not(:placeholder-shown) + .formLabel {
+  top: -0.5rem;
+}
+
+.sendButton {
+  background: linear-gradient(135deg, #0d1117 0%, #21262d 100%);
+  color: white;
+  border: none;
+  padding: 1.25rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(13, 17, 23, 0.3);
+}
+
+.sendButton:hover {
+  background: linear-gradient(135deg, #30363d 0%, #484f58 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(13, 17, 23, 0.4);
+}
+
+.sendIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.responseTime {
+  font-size: 0.9rem;
+  color: #B8860B;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contactContent {
+    padding: 0 24px;
+  }
+
+  .contactMain {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .heroContent {
+    padding: 0 24px;
+  }
+
+  .contactLeft {
+    padding-right: 0;
+  }
+
+  .contactRight {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 3rem 0;
+  }
+
+  .heroContent {
+    padding: 0 16px;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .contactSection {
+    padding: 4rem 0;
+  }
+
+  .contactContent {
+    padding: 0 16px;
+  }
+
+  .contactTitle {
+    font-size: 2rem;
+  }
+
+  .formContainer {
+    padding: 2rem;
+    border-radius: 20px;
+  }
+
+  .contactCards {
+    gap: 0.75rem;
+  }
+
+  .contactCard {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .contactIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contactIcon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .formInput,
+  .formTextarea {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .sendButton {
+    border-radius: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent {
+    padding: 0 16px;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroDescription {
+    font-size: 1rem;
+  }
+
+  .whatsappButton {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  .contactContent {
+    padding: 0 16px;
+  }
+
+  .contactTitle {
+    font-size: 1.75rem;
+  }
+
+  .formContainer {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .contactCard {
+    padding: 0.875rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+    border-radius: 12px;
+  }
+
+  .contactCardContent {
+    text-align: center;
+  }
+
+  .formInput,
+  .formTextarea {
+    padding: 0.875rem;
+    border-radius: 12px;
+  }
+
+  .sendButton {
+    padding: 1rem 1.5rem;
+    border-radius: 30px;
+  }
+}

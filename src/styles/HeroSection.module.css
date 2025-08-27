@@ -1,0 +1,982 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%; /* Use 100% instead of 100vw */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  background: radial-gradient(ellipse 120% 100% at 0% 0%, #8A6237 0%, #B58245 50%, #E6C06A 100%);
+  box-shadow: 0 0 0 100vw rgba(40,30,10,0.07) inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', 'Inter', 'Manrope', sans-serif;
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+}
+.particle0 { top: 12%; left: 8%; width: 3px; height: 3px; }
+.particle1 { top: 22%; left: 18%; width: 2px; height: 2px; }
+.particle2 { top: 38%; left: 12%; width: 4px; height: 4px; }
+.particle3 { top: 60%; left: 9%; width: 3px; height: 3px; }
+.particle4 { top: 80%; left: 15%; width: 2px; height: 2px; }
+.particle5 { top: 10%; left: 80%; width: 5px; height: 5px; }
+.particle6 { top: 30%; left: 85%; width: 3px; height: 3px; }
+.particle7 { top: 50%; left: 90%; width: 4px; height: 4px; }
+.particle8 { top: 70%; left: 82%; width: 2px; height: 2px; }
+.particle9 { top: 85%; left: 78%; width: 3px; height: 3px; }
+.particle10 { top: 60%; left: 60%; width: 5px; height: 5px; }
+.particle11 { top: 40%; left: 70%; width: 4px; height: 4px; }
+
+.topBadge {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  z-index: 2;
+  background: rgba(255,255,255,0.28);
+  backdrop-filter: blur(7px);
+  color: rgba(255,255,255,0.85);
+  font-size: 1.08rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  padding: 13px 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 24px rgba(140,100,40,0.18);
+}
+.badgeStar {
+  font-size: 1.1em;
+  margin-left: 8px;
+  color: #FFD56A;
+}
+
+/* Renamed from .carouselCue to .menuButton */
+.menuButton {
+  position: relative;
+  /* width: 48px; <-- Removed fixed width */
+  height: 48px;
+  border-radius: 9999px; /* Changed to pill shape */
+  background: #FFD56A;
+  color: #7A5A39;
+  box-shadow: 0 8px 24px rgba(140,100,40,0.18);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Added space between icon and text */
+  padding: 0 20px; /* Added horizontal padding */
+  font-size: 1.5rem; /* Icon size */
+  z-index: 2;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+/* Subtle glow effect on hover */
+.menuButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Style for the new "Menu" text */
+.menuButton span {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.menuButton:focus {
+  outline: 2px solid #FFD56A;
+  outline-offset: 3px;
+}
+
+.menuButton:hover {
+  box-shadow: 0 16px 40px rgba(140,100,40,0.35);
+  transform: translateY(-3px);
+  background: #FFE082;
+}
+
+.menuButton:hover::before {
+  opacity: 1;
+}
+
+.menuButton:hover span {
+  transform: translateX(1px);
+}
+
+.menuButton:active {
+  transform: translateY(-1px);
+  transition: all 0.1s ease;
+}
+
+/* Menu container for positioning */
+.menuContainer {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  z-index: 1000;
+}
+
+/* Dropdown menu styles */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 12px;
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  animation: dropdownSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  z-index: 1001;
+}
+
+@keyframes dropdownSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.dropdownContent {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px;
+  min-width: 200px;
+  overflow: hidden;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #2D2D2D;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: dropdownItemSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.dropdownItem:nth-child(1) { animation-delay: 0.05s; }
+.dropdownItem:nth-child(2) { animation-delay: 0.1s; }
+.dropdownItem:nth-child(3) { animation-delay: 0.15s; }
+.dropdownItem:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes dropdownItemSlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.dropdownItem:hover {
+  background: rgba(255, 213, 106, 0.15);
+  transform: translateX(4px);
+  color: #7A5A39;
+}
+
+.dropdownIcon {
+  font-size: 1.1rem;
+  color: #7A5A39;
+  transition: transform 0.2s ease;
+}
+
+.dropdownItem:hover .dropdownIcon {
+  transform: scale(1.1);
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto; /* Center the container */
+  padding: 48px 32px; /* Use padding for side gutters */
+  box-sizing: border-box; /* Include padding in width calculation */
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left {
+  flex: 0 0 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 320px;
+  max-width: 640px;
+  /* Removed margin-left and padding-left for consistent alignment */
+  box-sizing: border-box;
+}
+
+.headlineBlock {
+  margin-top: 56px; /* reduced */
+  margin-bottom: 10px; /* reduced */
+}
+
+.headline {
+  font-size: 4.2rem; /* reduced */
+  font-weight: 700;  /* reduced */
+  line-height: 1.05; /* tighter */
+  letter-spacing: -1px;
+  color: #fff;
+  margin-bottom: 0;
+}
+.software {
+  color: #fff;
+}
+.developer {
+  font-size: 4.2rem; /* match headline */
+  font-weight: 700;
+  color: #FFD56A;
+  text-shadow: 0 0 20px rgba(248,212,105,0.25);
+}
+
+.roles {
+  display: flex;
+  gap: 20px; /* reduced */
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+.role {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.roleIcon {
+  color: #FFD56A;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.paragraphBlock {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 24px; /* reduced */
+  margin-top: 0;
+}
+.accentBar {
+  width: 3px;
+  height: 100%;
+  background: #FFD56A;
+  border-radius: 2px;
+  margin-right: 18px;
+  margin-top: 2px;
+}
+.paragraph {
+  font-size: 1.18rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+  font-weight: 400;
+}
+.emphasis {
+  font-weight: 700;
+  color: #FFD56A;
+  text-decoration: underline wavy #FFD56A 1.5px;
+}
+
+.ctas {
+  display: flex;
+  gap: 20px;
+  margin-top: 24px; /* reduced */
+}
+
+.primaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  color: #6C4B2E;
+  font-weight: 600;
+  font-size: 1.08rem;
+  border-radius: 9999px;
+  padding: 0 28px;
+  height: 52px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  /* Enhanced transition for a cooler effect */
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.primaryBtn:focus {
+  outline: 2px solid #FFD56A;
+  outline-offset: 3px;
+}
+.primaryBtn:hover {
+  /* More lift and a more prominent shadow */
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.16);
+}
+
+.secondaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.08rem;
+  border-radius: 9999px;
+  padding: 0 22px;
+  height: 52px;
+  border: 2px solid #fff;
+  text-decoration: none;
+  cursor: pointer;
+  /* Enhanced transition for a cooler effect */
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.secondaryBtn:focus {
+  outline: 2px solid #FFD56A;
+  outline-offset: 3px;
+}
+.secondaryBtn:hover {
+  /* Add lift, a golden glow, and change border/text color */
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #FFD56A;
+  color: #FFD56A;
+  box-shadow: 0 0 25px rgba(255, 213, 106, 0.25);
+}
+
+.ctaIcon {
+  font-size: 1.3em;
+  margin-left: 4px;
+}
+.ctaIconLeft {
+  font-size: 1.3em;
+  margin-right: 4px;
+}
+
+.statsRow {
+  display: flex;
+  gap: 28px; /* reduced */
+  margin-top: 32px; /* reduced */
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.statNum {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2px;
+}
+.statLabel {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+}
+
+.right {
+  flex: 0 0 45%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 320px;
+  position: relative;
+}
+
+.portraitFrame {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.thinGoldRim {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 3px solid #FFE082;
+  z-index: 2;
+  box-sizing: border-box;
+  pointer-events: none;
+  box-shadow: 0 0 20px rgba(255, 224, 130, 0.3);
+  animation: rimGlow 3s ease-in-out infinite;
+}
+.portrait {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 3;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  background: #fff;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Portrait hover effects */
+.portraitFrame:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.portraitFrame:hover .portrait {
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35), 0 0 40px rgba(255, 224, 130, 0.4);
+  transform: scale(1.05);
+}
+
+.portraitFrame:hover .thinGoldRim {
+  animation-play-state: paused;
+  box-shadow: 0 0 40px rgba(255, 224, 130, 0.7), 0 0 80px rgba(255, 224, 130, 0.3);
+  border-color: #FFD56A;
+  transform: scale(1.08);
+}
+
+/* Enhanced floating item interactions on portrait hover */
+.portraitFrame:hover .skillChipReact {
+  animation-play-state: paused;
+  transform: translateY(-12px) rotate(5deg) scale(1.1);
+  box-shadow: 0 8px 32px rgba(42,122,120,0.25);
+}
+
+.portraitFrame:hover .skillChipPython {
+  animation-play-state: paused;
+  transform: translateY(-12px) rotate(-5deg) scale(1.1);
+  box-shadow: 0 8px 32px rgba(42,122,120,0.25);
+}
+
+.portraitFrame:hover .iconBtnStar {
+  animation-play-state: paused;
+  transform: translateY(-50%) translateX(-8px) scale(1.15);
+  box-shadow: 0 12px 40px rgba(140,100,40,0.4);
+}
+
+.portraitFrame:hover .iconBtnZap {
+  animation-play-state: paused;
+  transform: translateY(-8px) translateX(-4px) rotate(10deg) scale(1.15);
+  box-shadow: 0 20px 50px rgba(255,213,106,0.6);
+}
+
+/* Bouncy animations for floating items */
+@keyframes floatBounce1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(1deg); }
+  50% { transform: translateY(-4px) rotate(0deg); }
+  75% { transform: translateY(-12px) rotate(-1deg); }
+}
+
+@keyframes floatBounce2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-6px) rotate(-1deg); }
+  66% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes floatBounce3 {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(calc(-50% - 8px)) scale(1.05); }
+}
+
+@keyframes floatBounce4 {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+  25% { transform: translateY(-5px) rotate(2deg) scale(1.02); }
+  75% { transform: translateY(-10px) rotate(-2deg) scale(1.02); }
+}
+
+@keyframes rimGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 224, 130, 0.3);
+    border-color: #FFE082;
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 224, 130, 0.5);
+    border-color: #FFD56A;
+  }
+}
+
+/* Background glow effect for portrait hover */
+.portraitFrame::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(circle, rgba(255, 224, 130, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.portraitFrame:hover::before {
+  opacity: 1;
+}
+
+/* Halo glow effects */
+.haloGlow1 {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 224, 130, 0.08) 0%, transparent 70%);
+  z-index: 1;
+  opacity: 0.6;
+  transition: all 0.4s ease;
+}
+
+.haloGlow2 {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 213, 106, 0.05) 0%, transparent 80%);
+  z-index: 1;
+  opacity: 0.4;
+  transition: all 0.4s ease;
+}
+
+.portraitFrame:hover .haloGlow1 {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.portraitFrame:hover .haloGlow2 {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+/* Floating items positioning */
+.skillChipReact {
+  position: absolute;
+  top: 18px;
+  left: -18px;
+  background: #fff;
+  color: rgba(0,0,0,0.6);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  box-shadow: 0 2px 8px rgba(42,122,120,0.10);
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  animation: floatBounce1 4s ease-in-out infinite;
+}
+.skillChipPython {
+  position: absolute;
+  bottom: 18px;
+  right: -18px;
+  background: #fff;
+  color: rgba(0,0,0,0.6);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  box-shadow: 0 2px 8px rgba(42,122,120,0.10);
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  animation: floatBounce2 3.5s ease-in-out infinite 0.5s;
+}
+.iconBtnStar {
+  position: absolute;
+  left: -32px;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #8A6237;
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 16px rgba(140,100,40,0.18), 0 0 0 4px rgba(140,100,40,0.10) inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  z-index: 5;
+  cursor: pointer;
+  transition: box-shadow 0.18s;
+  animation: floatBounce3 3.8s ease-in-out infinite 1s;
+  transform: translateY(-50%);
+}
+.iconBtnStar:hover {
+  box-shadow: 0 8px 24px rgba(140,100,40,0.28);
+  animation-play-state: paused;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.iconBtnZap {
+  position: absolute;
+  left: -18px;
+  bottom: -18px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  color: #FFD56A;
+  border: none;
+  box-shadow: 0 10px 30px rgba(255,213,106,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 5;
+  cursor: pointer;
+  transition: box-shadow 0.18s;
+  animation: floatBounce4 4.2s ease-in-out infinite 1.5s;
+}
+.iconBtnZap:hover {
+  box-shadow: 0 16px 40px rgba(255,213,106,0.45);
+  animation-play-state: paused;
+  transform: scale(1.08);
+}
+
+.scrollIndicator {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mouseOutline {
+  width: 24px;
+  height: 40px;
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.mouseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.8);
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  animation: mouseDotAnim 2s infinite;
+}
+@keyframes mouseDotAnim {
+  0% { top: 10px; opacity: 1; }
+  50% { top: 22px; opacity: 0.6; }
+  100% { top: 10px; opacity: 1; }
+}
+
+.floatingHeader {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  z-index: 10;
+  background: rgba(255,255,255,0.28);
+  backdrop-filter: blur(7px);
+  color: #fff; /* changed to white */
+  font-size: 1.08rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  padding: 13px 38px; /* increased horizontal padding for length */
+  min-width: 340px; /* ensure header is longer */
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 24px rgba(140,100,40,0.18);
+  transition: min-width 0.2s;
+}
+
+.floatingHeader ul {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  justify-content: center;
+}
+
+.floatingHeader a {
+  color: #fff; /* white text */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.3em 0.7em;
+  border-radius: 5px;
+  transition: background 0.18s, color 0.18s;
+}
+
+.floatingHeader a:hover,
+.floatingHeader a:focus {
+  background: #eaf6fb;
+  color: #2b7a78;
+}
+
+/* Menu button for mobile */
+.menuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.7rem;
+  margin-left: auto;
+  cursor: pointer;
+  z-index: 20;
+}
+
+/* =================================== */
+/*          TABLET STYLES              */
+/* =================================== */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    padding: 64px 24px; /* Adjust padding for tablets */
+    gap: 48px; /* Add space between stacked text and image */
+  }
+
+  .left {
+    align-items: center; /* Center align all text content */
+    text-align: center;
+    margin-left: 0;
+    padding-left: 0;
+    max-width: 580px;
+  }
+
+  .headline {
+    font-size: 3rem; /* Reduce headline size */
+  }
+  .developer {
+    font-size: 3rem;
+  }
+
+  .roles {
+    justify-content: center; /* Center the roles */
+  }
+
+  .paragraphBlock {
+    align-items: center;
+  }
+  .accentBar {
+    display: none; /* Hide accent bar on smaller screens for cleaner look */
+  }
+
+  .ctas {
+    justify-content: center; /* Center buttons */
+  }
+
+  .statsRow {
+    justify-content: center; /* Center stats */
+  }
+
+  .right {
+    justify-content: center; /* Center the portrait section */
+  }
+
+  .portraitFrame {
+    width: 240px; /* Adjust portrait size */
+    height: 240px;
+  }
+  .thinGoldRim {
+    width: 240px;
+    height: 240px;
+  }
+  .portrait {
+    width: 220px;
+    height: 220px;
+  }
+
+  /* Adjust floating items for new portrait size */
+  .skillChipReact { top: 0; left: -10px; }
+  .skillChipPython { bottom: 0; right: -10px; }
+  .iconBtnStar { left: -24px; }
+  .iconBtnZap { left: -10px; bottom: -10px; }
+
+  .floatingHeader {
+    top: 24px;
+    right: 24px;
+    min-width: 0;
+    padding: 8px 14px;
+    font-size: 1rem;
+    width: auto;
+  }
+  .floatingHeader ul {
+    display: none;
+  }
+  .menuBtn {
+    display: block;
+  }
+  .topBadge {
+    top: 24px;
+    left: 24px;
+  }
+
+  /* Menu container positioning for tablet */
+  .menuContainer {
+    top: 24px;
+    right: 24px;
+  }
+}
+
+
+/* =================================== */
+/*           MOBILE STYLES             */
+/* =================================== */
+@media (max-width: 600px) {
+  .topBadge {
+    top: 16px;
+    left: 16px;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+  .floatingHeader {
+    top: 16px;
+    right: 16px;
+  }
+
+  .container {
+    padding: 48px 16px; /* Adjust padding for mobile */
+    gap: 40px;
+  }
+
+  .headline {
+    font-size: 2.5rem; /* Further reduce headline */
+  }
+  .developer {
+    font-size: 2.5rem;
+  }
+
+  .role {
+    font-size: 1rem; /* Reduce role text size */
+  }
+
+  .paragraph {
+    font-size: 1rem; /* Reduce paragraph text size */
+  }
+
+  .ctas {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;
+    gap: 16px;
+  }
+  .primaryBtn, .secondaryBtn {
+    height: 48px; /* Adjust button size */
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .statsRow {
+    gap: 24px;
+  }
+  .statNum {
+    font-size: 1.8rem;
+  }
+  .statLabel {
+    font-size: 0.7rem;
+  }
+
+  .portraitFrame {
+    width: 200px; /* Final portrait size for mobile */
+    height: 200px;
+  }
+  .thinGoldRim {
+    width: 200px;
+    height: 200px;
+  }
+  .portrait {
+    width: 180px;
+    height: 180px;
+  }
+
+  /* Final adjustments for floating items */
+  .skillChipReact { font-size: 0.75rem; padding: 4px 10px; }
+  .skillChipPython { font-size: 0.75rem; padding: 4px 10px; }
+  .iconBtnStar { width: 32px; height: 32px; font-size: 1rem; left: -16px; }
+  .iconBtnZap { width: 36px; height: 36px; font-size: 1.2rem; left: -8px; bottom: -8px; }
+
+  /* Menu container positioning for mobile */
+  .menuContainer {
+    top: 16px;
+    right: 16px;
+  }
+
+  .menuButton {
+    height: 40px;
+    font-size: 1.2rem; /* Adjust icon size */
+    padding: 0 16px; /* Adjust padding */
+    gap: 6px;
+  }
+
+  .menuButton span {
+    font-size: 0.9rem; /* Adjust text size for mobile */
+  }
+
+  /* Adjust dropdown for mobile */
+  .dropdownContent {
+    min-width: 180px;
+    margin-right: -8px;
+  }
+}
+
+/* Added transition for hover effects */
+.skillChipReact,
+.skillChipPython,
+.iconBtnStar,
+.iconBtnZap {
+  transition: box-shadow 0.18s, transform 0.18s, color 0.18s;
+}
+
+.skillChipReact:hover,
+.skillChipPython:hover,
+.iconBtnStar:hover,
+.iconBtnZap:hover {
+  box-shadow: 0 8px 24px rgba(255,213,106,0.28);
+  transform: scale(1.08);
+}
+
+/* =================================== */
+/*        LARGE SCREEN ALIGNMENT       */
+/* =================================== */
+@media (min-width: 1200px) {
+  /* Align top badge and menu with container content on large screens */
+  .topBadge {
+    left: calc(50% - 550px + 32px); /* Half of max-width (1100px) minus container padding */
+  }
+
+  .menuContainer {
+    right: calc(50% - 550px + 32px); /* Half of max-width (1100px) minus container padding */
+  }
+}

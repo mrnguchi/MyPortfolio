@@ -1,0 +1,375 @@
+/* Services Section Container */
+.services {
+  padding: 40px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Geometric Background Elements */
+.services::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    /* Dot grid pattern - top right */
+    radial-gradient(circle at 2px 2px, rgba(148, 163, 184, 0.3) 1px, transparent 1px),
+    /* Large circle - top right */
+    radial-gradient(circle at 85% 15%, rgba(203, 213, 225, 0.4) 80px, transparent 81px),
+    /* Abstract blob - bottom left */
+    radial-gradient(ellipse 200px 150px at 15% 85%, rgba(226, 232, 240, 0.6) 40%, transparent 41%),
+    /* Medium circle - center right */
+    radial-gradient(circle at 90% 60%, rgba(241, 245, 249, 0.8) 60px, transparent 61px),
+    /* Small dots pattern - left side */
+    radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.2) 1px, transparent 1px);
+  background-size:
+    20px 20px,
+    400px 400px,
+    500px 400px,
+    300px 300px,
+    15px 15px;
+  background-position:
+    80% 10%,
+    85% 15%,
+    15% 85%,
+    90% 60%,
+    5% 20%;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat, repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Additional geometric shapes */
+.services::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    /* Triangle shape - top left */
+    linear-gradient(45deg, rgba(203, 213, 225, 0.3) 25%, transparent 25%),
+    /* Diamond pattern - center */
+    linear-gradient(45deg, transparent 40%, rgba(226, 232, 240, 0.4) 40%, rgba(226, 232, 240, 0.4) 60%, transparent 60%),
+    /* Striped circle - bottom right */
+    repeating-linear-gradient(45deg, rgba(148, 163, 184, 0.1) 0px, rgba(148, 163, 184, 0.1) 2px, transparent 2px, transparent 8px);
+  background-size:
+    100px 100px,
+    80px 80px,
+    200px 200px;
+  background-position:
+    10% 20%,
+    70% 40%,
+    85% 80%;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.heading {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2D2D2D;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #7A5A39 0%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #4B5563;
+  max-width: 700px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* Services Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* Service Cards */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Header */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* Icon Wrapper */
+.iconWrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.golden {
+  background: linear-gradient(135deg, #7A5A39 0%, #B8860B 100%);
+  box-shadow: 0 2px 8px rgba(184, 134, 11, 0.3);
+}
+
+.darkblue {
+  background: linear-gradient(135deg, #24292f 0%, #1f2328 100%);
+  box-shadow: 0 2px 8px rgba(36, 41, 47, 0.3);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 1.2rem;
+}
+
+/* Icon Styles */
+.design::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Crect x='3' y='4' width='18' height='13' rx='2' stroke='white' stroke-width='1.5' fill='none'/%3E%3Crect x='5' y='6' width='6' height='3' fill='white' opacity='0.7'/%3E%3Crect x='13' y='6' width='6' height='2' fill='white' opacity='0.7'/%3E%3Crect x='5' y='10' width='8' height='1' fill='white' opacity='0.5'/%3E%3Crect x='5' y='12' width='10' height='1' fill='white' opacity='0.5'/%3E%3Crect x='5' y='14' width='6' height='1' fill='white' opacity='0.5'/%3E%3Ccircle cx='17' cy='11' r='1.5' fill='white' opacity='0.7'/%3E%3C/svg%3E") no-repeat center;
+  background-size: contain;
+}
+
+.webdev::before {
+  content: '</>';
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  color: white;
+  line-height: 1;
+}
+
+.mobile::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Crect x='6' y='2' width='12' height='20' rx='2' stroke='white' stroke-width='1.5' fill='none'/%3E%3Cline x1='9' y1='19' x2='15' y2='19' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat center;
+  background-size: contain;
+}
+
+.data::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M3 3h18v4H3V3zm0 6h18v4H3V9zm0 6h18v4H3v-4z' stroke='white' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='6' cy='5' r='1' fill='white'/%3E%3Ccircle cx='6' cy='11' r='1' fill='white'/%3E%3Ccircle cx='6' cy='17' r='1' fill='white'/%3E%3C/svg%3E") no-repeat center;
+  background-size: contain;
+}
+
+/* Service Content */
+.serviceTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2D2D2D;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.serviceDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #6B7280;
+  margin-bottom: 24px;
+}
+
+/* Features List */
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #4B5563;
+}
+
+.bulletPoint {
+  width: 6px;
+  height: 6px;
+  background: #B8860B;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Status Section */
+.statusWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.statusLabel {
+  font-size: 0.85rem;
+  color: #6B7280;
+}
+
+.statusBadge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.green {
+  background: #10b981;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .services {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1.125rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .iconWrapper {
+    width: 45px;
+    height: 45px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .services {
+    padding: 48px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .cardHeader {
+    gap: 12px;
+  }
+
+  .serviceTitle {
+    font-size: 1.1rem;
+  }
+
+  .serviceDescription {
+    font-size: 0.85rem;
+  }
+
+  .featureItem {
+    font-size: 0.8rem;
+  }
+
+  .iconWrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}

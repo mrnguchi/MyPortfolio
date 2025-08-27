@@ -1,0 +1,376 @@
+/* About Section Container */
+.about {
+  padding: 40px 0;
+  background: #f8fafc;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Inner Container */
+.container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.heading {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2D2D2D;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #7A5A39 0%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #4B5563;
+  max-width: 700px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* Content Grid */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Section Styling */
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  background: #B8860B;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.25rem;
+  box-shadow: 0 2px 8px rgba(184, 134, 11, 0.3);
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2D2D2D;
+  margin: 0;
+}
+
+/* Education Section */
+.educationList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.educationItem {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.educationItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.educationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 16px;
+}
+
+.degree {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #2D2D2D;
+  margin: 0;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ongoing {
+  background: #FEF3C7;
+  color: #D97706;
+  border: 1px solid #FCD34D;
+}
+
+.completed {
+  background: #D1FAE5;
+  color: #059669;
+  border: 1px solid #6EE7B7;
+}
+
+.institution {
+  font-size: 1rem;
+  color: #6B7280;
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.duration {
+  font-size: 0.875rem;
+  color: #9CA3AF;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Toggle Button - Glassy Modern Design */
+.toggleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(122, 90, 57, 0.2);
+  border-radius: 20px;
+  color: #7A5A39;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.toggleButton:hover {
+  background: rgba(122, 90, 57, 0.1);
+  border-color: rgba(122, 90, 57, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(122, 90, 57, 0.15);
+}
+
+.toggleButton:active {
+  transform: translateY(-1px);
+}
+
+/* Skills Section */
+.skillsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skillCategory {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.skillCategory:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.categoryTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #7A5A39;
+  margin: 0 0 16px 0;
+}
+
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skillTag {
+  padding: 8px 16px;
+  background: #f8fafc;
+  color: #374151;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.skillTag:hover {
+  background: #B8860B;
+  color: white;
+  border-color: #B8860B;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(184, 134, 11, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .about {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1.125rem;
+  }
+
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .section {
+    padding: 32px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 24px;
+  }
+
+  .educationList {
+    gap: 20px;
+  }
+
+  .educationItem {
+    padding: 20px;
+  }
+
+  .skillsContainer {
+    gap: 20px;
+  }
+
+  .skillCategory {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about {
+    padding: 48px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .contentGrid {
+    gap: 24px;
+  }
+
+  .section {
+    padding: 24px;
+  }
+
+  .iconWrapper {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+
+  .educationHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .degree {
+    font-size: 1rem;
+  }
+
+  .educationItem {
+    padding: 16px;
+  }
+
+  .skillCategory {
+    padding: 16px;
+  }
+
+  .categoryTitle {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .skillTags {
+    gap: 8px;
+  }
+
+  .skillTag {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .toggleButton {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    gap: 4px;
+  }
+}

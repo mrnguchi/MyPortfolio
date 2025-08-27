@@ -1,0 +1,122 @@
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #f8fafc 60%, #eaf6fb 100%);
+  padding: 2rem 1rem;
+}
+
+.heroContent {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.profileWrapper {
+  flex: 0 0 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #3aafa9;
+  box-shadow: 0 4px 24px rgba(42, 122, 120, 0.08);
+  background: #fff;
+}
+
+.text {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #3aafa9;
+  margin-bottom: 1.2rem;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.button {
+  background: #2b7a78;
+  color: #fff;
+  border: none;
+  padding: 0.8em 2em;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(42, 122, 120, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #3aafa9;
+  box-shadow: 0 4px 16px rgba(42, 122, 120, 0.12);
+}
+
+.buttonOutline {
+  background: #fff;
+  color: #2b7a78;
+  border: 2px solid #2b7a78;
+  padding: 0.8em 2em;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.buttonOutline:hover {
+  background: #3aafa9;
+  color: #fff;
+  border-color: #3aafa9;
+}
+
+@media (max-width: 700px) {
+  .heroContent {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+  .text {
+    align-items: center;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .profileWrapper {
+    margin-bottom: 1rem;
+  }
+}

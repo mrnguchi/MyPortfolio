@@ -40,7 +40,7 @@ const ContactSection = () => {
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "237672491424";
-    const message = "Hello! I'm interested in discussing a project with you.";
+    const message = "Hello! I am interested in discussing a project with you.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -52,10 +52,10 @@ const ContactSection = () => {
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
             <span className={styles.heroIcon}>💡</span>
-            <h2 className={styles.heroTitle}>Got A Project! Let's Talk</h2>
+            <h2 className={styles.heroTitle}>Got A Project! Let&apos;s Talk</h2>
             <p className={styles.heroDescription}>
-              Ready to bring your ideas to life? Let's collaborate and create something amazing together.
-              I'm here to help turn your vision into reality.
+              Ready to bring your ideas to life? Let&apos;s collaborate and create something amazing together.
+              I&apos;m here to help turn your vision into reality.
             </p>
             <button className={styles.whatsappButton} onClick={handleWhatsAppClick}>
               <svg className={styles.whatsappIcon} viewBox="0 0 24 24" fill="currentColor">
@@ -72,9 +72,9 @@ const ContactSection = () => {
         <div className={styles.contactContent}>
           {/* Header Section */}
           <div className={styles.contactHeader}>
-            <h3 className={styles.contactTitle}>Let's Connect</h3>
+            <h3 className={styles.contactTitle}>Let&apos;s Connect</h3>
             <p className={styles.contactDescription}>
-              I'm always open to discussing new opportunities, collaborating on exciting 
+              I&apos;m always open to discussing new opportunities, collaborating on exciting 
               projects, or simply chatting about technology and innovation.
             </p>
           </div>

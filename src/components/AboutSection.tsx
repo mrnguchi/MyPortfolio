@@ -19,7 +19,7 @@ const AboutSection = () => {
           About <span className={styles.highlight}>Me</span>
         </h2>
         <p className={styles.description}>
-          I'm a 22-year-old software developer with an HND in Software Engineering, currently
+          I am a 22-year-old software developer with an HND in Software Engineering, currently
           completing my Bachelor's at the University of Buea. I'm passionate about building
           practical solutions through technology and continuously learning from the fast-changing
           trends in the tech world.

@@ -1,5 +1,6 @@
 .hero {
   position: relative;
+  --chipH: 42px; /* shared height for top badge and menu button */
   min-height: 100vh;
   min-height: 100svh;
   min-height: 100dvh; /* Use dynamic viewport height on mobile to avoid nested scroll */
@@ -49,7 +50,8 @@
   font-size: 1.08rem;
   font-weight: 500;
   border-radius: 9999px;
-  padding: 13px 22px;
+  height: var(--chipH);
+  padding: 0 22px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -65,7 +67,7 @@
 .menuButton {
   position: relative;
   /* width: 48px; <-- Removed fixed width */
-  height: 48px;
+  height: var(--chipH); /* match top badge at all times */
   border-radius: 9999px; /* Changed to pill shape */
   background: #FFD56A;
   color: #7A5A39;
@@ -75,8 +77,8 @@
   align-items: center;
   justify-content: center;
   gap: 8px; /* Added space between icon and text */
-  padding: 0 20px; /* Added horizontal padding */
-  font-size: 1.5rem; /* Icon size */
+  padding: 0 16px; /* tighter to match badge */
+  font-size: 1.2rem; /* smaller icon size */
   z-index: 2;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -258,10 +260,17 @@
   color: #fff;
 }
 .developer {
-  font-size: 4.2rem; 
+  font-size: 4.2rem;
   font-weight: 700;
   color: #FFD56A;
   text-shadow: 0 0 20px rgba(248,212,105,0.25);
+}
+
+/* Keep content centered on wide screens with symmetric margins */
+@media (min-width: 1200px) {
+  .container { max-width: 1100px; margin: 0 auto; }
+  .topBadge { left: calc(50% - 550px + 32px); }
+  .menuContainer { right: calc(50% - 550px + 32px); }
 }
 
 .roles {
@@ -424,7 +433,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .thinGoldRim {
   position: absolute;
@@ -447,7 +456,9 @@
   z-index: 3;
   box-shadow: 0 20px 60px rgba(0,0,0,0.25);
   background: #fff;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Separate transitions for smoother hover */
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 320ms ease, filter 320ms ease;
 }
 
 
@@ -457,14 +468,17 @@
 
 .portraitFrame:hover .portrait {
   box-shadow: 0 30px 80px rgba(0,0,0,0.35), 0 0 40px rgba(255, 224, 130, 0.4);
-  transform: scale(1.05);
+  transform: scale(1.03);
+  filter: saturate(1.05);
 }
+
+/* Reduce layout shift by easing rim too */
 
 .portraitFrame:hover .thinGoldRim {
   animation-play-state: paused;
   box-shadow: 0 0 40px rgba(255, 224, 130, 0.7), 0 0 80px rgba(255, 224, 130, 0.3);
   border-color: #FFD56A;
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 
@@ -862,8 +876,11 @@
   .topBadge {
     top: 16px;
     left: 16px;
-    font-size: 0.8rem;
-    padding: 8px 12px;
+    font-size: clamp(0.62rem, 3.2vw, 0.9rem);
+    height: var(--chipH);
+    padding: 0 10px;
+    white-space: nowrap; /* never wrap */
+    max-width: calc(100% - 120px); /* keep clear of menu */
   }
   .floatingHeader {
     top: 16px;
@@ -891,14 +908,15 @@
   }
 
   .ctas {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     gap: 16px;
+    width: 100%;
   }
   .primaryBtn, .secondaryBtn {
-    height: 48px; 
+    height: 48px;
     width: 100%;
-    max-width: 300px;
+    max-width: 520px; /* nearly full width of content column */
     justify-content: center;
   }
 
@@ -913,16 +931,16 @@
   }
 
   .portraitFrame {
-    width: 200px; 
-    height: 200px;
+    width: min(76vw, 280px);
+    height: min(76vw, 280px);
   }
   .thinGoldRim {
-    width: 200px;
-    height: 200px;
+    width: min(76vw, 280px);
+    height: min(76vw, 280px);
   }
   .portrait {
-    width: 180px;
-    height: 180px;
+    width: calc(min(76vw, 280px) - 18px);
+    height: calc(min(76vw, 280px) - 18px);
   }
 
 
@@ -938,14 +956,14 @@
   }
 
   .menuButton {
-    height: 40px;
-    font-size: 1.2rem;  
-    padding: 0 16px; 
-    gap: 6px;
+    height: var(--chipH);
+    font-size: clamp(0.95rem, 4.5vw, 1.1rem);
+    padding: 0 clamp(10px, 3.5vw, 14px);
+    gap: clamp(4px, 2vw, 6px);
   }
 
   .menuButton span {
-    font-size: 0.9rem; 
+    font-size: clamp(0.78rem, 3.8vw, 0.9rem);
   }
 
   
